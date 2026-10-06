@@ -1,17 +1,32 @@
-# flutter_participacion7
+# Divisor de cuenta (SDD)
 
-A new Flutter project.
+Aplicación Flutter de una pantalla para dividir el total de una cuenta, incluida la propina, entre varias personas. Funciona sin conexión y no guarda datos.
 
-## Getting Started
+## Uso
 
-This project is a starting point for a Flutter application.
+```powershell
+flutter pub get
+flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+Ingresa monto, personas y propina; selecciona **Exacto** o **Hacia arriba al entero** y pulsa **Calcular**.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Arquitectura
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- `lib/domain/`: cuenta, resultado, validación, cálculo e interfaz de redondeo en Dart puro.
+- `lib/data/`: estrategias exacta y hacia arriba.
+- `lib/presentation/`: controller, formateador y pantalla.
+- `lib/main.dart`: composición de dependencias.
+
+La presentación depende del dominio; datos implementa la estrategia del dominio.
+
+## Verificación
+
+```powershell
+flutter test
+flutter test --reporter expanded
+flutter analyze
+flutter build apk --debug
+```
+
+Los escenarios de aceptación viven en `test/casos_de_prueba.dart`; `test/division_test.dart` los ejecuta sobre el dominio y `test/pantalla_test.dart` comprueba la pantalla.
