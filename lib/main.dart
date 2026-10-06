@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
       redondeoHaciaArriba: RedondeoHaciaArriba(),
     );
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Divisor de cuenta',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.teal)),
       home: PantallaDivisor(
