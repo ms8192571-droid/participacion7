@@ -64,6 +64,29 @@ void main() {
     expect(exacto.montoPorPersona, closeTo(3.33, 0.001));
     expect(haciaArriba.montoPorPersona, closeTo(4, 0.001));
   });
+
+  test('rechaza propina superior al 100%', () {
+    const cuenta = Cuenta(
+      montoTotal: 100,
+      personas: 4,
+      porcentajePropina: 150,
+    );
+
+    expect(
+      ValidarEntrada().validar(cuenta),
+      'La propina no puede superar el 100%',
+    );
+  });
+
+  test('permite propina exactamente del 100%', () {
+    const cuenta = Cuenta(
+      montoTotal: 100,
+      personas: 4,
+      porcentajePropina: 100,
+    );
+
+    expect(ValidarEntrada().validar(cuenta), isNull);
+  });
 }
 
 class _EstrategiaEspia implements EstrategiaRedondeo {
