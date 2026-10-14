@@ -1,0 +1,9 @@
+[33m091eec1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32msdd[m[33m)[m refactor: <nombre del smell>
+[33ma3c5b92[m linter: sin avisos
+[33md649bee[m verde: propina maxima 100
+[33m27b70f5[m rojo: pruebas de propina maxima 100
+[33m27b6274[m ocultar la cinta de depuracion en sdd
+[33m46b17cb[m app divisor de cuenta - rama sdd, con pruebas
+[33m8259d9a[m spec, constitution, plan y tareas de la app
+[33mb1bf7f6[m archivo de instrucciones del agente
+[33m2370245[m proyecto base de Flutter sin dependencias externas
