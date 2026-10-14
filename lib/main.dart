@@ -12,24 +12,31 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final controller = DivisorController(
+    validarEntrada: ValidarEntrada(),
+    calcularDivision: CalcularDivision(),
+    redondeoExacto: RedondeoExacto(),
+    redondeoHaciaArriba: RedondeoHaciaArriba(),
+  );
+  final formateador = FormateadorMoneda();
+
+  @override
   Widget build(BuildContext context) {
-    final controller = DivisorController(
-      validarEntrada: ValidarEntrada(),
-      calcularDivision: CalcularDivision(),
-      redondeoExacto: RedondeoExacto(),
-      redondeoHaciaArriba: RedondeoHaciaArriba(),
-    );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Divisor de cuenta',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.teal)),
       home: PantallaDivisor(
         controller: controller,
-        formateador: FormateadorMoneda(),
+        formateador: formateador,
       ),
     );
   }
